@@ -24,3 +24,15 @@ jobs:
           uses: reitzig/actions-asciidoctor@v2.0.2
         - name: convert asciidoc to html
           run: asciidoctor ./docs/api_reference/out.asciidoc
+
+        - name: create PR for changes
+          id: cpr
+          uses: peter-evans/create-pull-request@v7
+          with:
+            add-paths: |
+              docs/api_reference/*
+        - name: Check outputs
+          if: ${{ steps.cpr.outputs.pull-request-number }}
+          run: |
+            echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
+            echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
