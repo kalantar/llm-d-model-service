@@ -12,7 +12,7 @@ jobs:
 
         # generate asciidoc from source
         - run: wget https://github.com/elastic/crd-ref-docs/releases/download/v0.1.0/crd-ref-docs_0.1.0_Linux_x86_64.tar.gz
-        - run: tar -xvf generate asciidoccrd-ref-docs_0.1.0_Linux_x86_64.tar.gz
+        - run: tar -xvf crd-ref-docs_0.1.0_Linux_x86_64.tar.gz
         - run: ./crd-ref-docs --source-path=./api/v1alpha1  --config=./docs/api_reference/config.yaml --output-path=./docs/api_reference
 
         # convert to html using asciidoc
