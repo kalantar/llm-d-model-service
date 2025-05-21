@@ -31,6 +31,8 @@ jobs:
           with:
             add-paths: |
               docs/api_reference/*
+            commit-message: "updated API doc"
+            signoff: true
         - name: Check outputs
           if: ${{ steps.cpr.outputs.pull-request-number }}
           run: |
