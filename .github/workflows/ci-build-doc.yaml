@@ -11,14 +11,9 @@ jobs:
           uses: actions/checkout@v4
 
         # generate asciidoc from source
-        - name: install go
-          uses: actions/setup-go@v5
-        - name: Go Installer
-          uses: mattdowdell/go-installer@v0.3.0
-          with:
-            package: github.com/elastic/crd-ref-docs
-        - name: generate asciidoc
-          run: crd-ref-docs --source-path=./api/v1alpha1  --config=./docs/api_reference/config.yaml --output-path=./docs/api_reference
+        - run: wget https://github.com/elastic/crd-ref-docs/releases/download/v0.1.0/crd-ref-docs_0.1.0_Linux_x86_64.tar.gz
+        - run: tar -xvf generate asciidoccrd-ref-docs_0.1.0_Linux_x86_64.tar.gz
+        - run: ./crd-ref-docs --source-path=./api/v1alpha1  --config=./docs/api_reference/config.yaml --output-path=./docs/api_reference
 
         # convert to html using asciidoc
         - name: install ruby
