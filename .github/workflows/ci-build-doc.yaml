@@ -18,6 +18,8 @@ jobs:
         # convert to html using asciidoc
         - name: install ruby
           uses: ruby/setup-ruby@v1
+          with:
+            ruby-version: '3.4.4'
         - name: install asciidoc
           uses: reitzig/actions-asciidoctor@v2.0.2
         - name: convert asciidoc to html
